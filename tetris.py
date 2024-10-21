@@ -100,12 +100,12 @@ T = [['.....',
 
 
 shapes = [S, Z, I, O, J, L, T]
-shape_colors = [(0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 255, 0), (255, 165, 0), 
+shape_colors = [(0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 255, 0), (255, 165, 0),
 (0, 0, 255), (128, 0, 128)]
 
 class Piece(object):
-    rows = 20  
-    columns = 10 
+    rows = 20
+    columns = 10
     def __init__(self, column, row, shape):
         self.x = column
         self.y = row
