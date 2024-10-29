@@ -144,7 +144,7 @@ def draw_window(surface, grid):
 
 def main():
     global grid
-    locked_positions = {} 
+    locked_positions = {}
     grid = create_grid(locked_positions)
     run = True
     current_piece = get_shape()
@@ -183,7 +183,7 @@ def draw_grid(surface, row, col):
     sx = top_left_x
     sy = top_left_y
     for i in range(row):
-        pygame.draw.line(surface, (128,128,128), (sx, sy+ i*30), (sx + play_width, sy + i * 30))  
+        pygame.draw.line(surface, (128,128,128), (sx, sy+ i*30), (sx + play_width, sy + i * 30))
         for j in range(col):
             pygame.draw.line(surface, (128,128,128), (sx + j * 30, sy),
              (sx + j * 30, sy + play_height))
@@ -192,7 +192,7 @@ def draw_grid(surface, row, col):
     sx = top_left_x
     sy = top_left_y
     for i in range(row):
-        pygame.draw.line(surface, (128,128,128), (sx, sy+ i*30), (sx + play_width, sy + i * 30))  
+        pygame.draw.line(surface, (128,128,128), (sx, sy+ i*30), (sx + play_width, sy + i * 30))
         for j in range(col):
             pygame.draw.line(surface, (128,128,128), (sx + j * 30, sy),
              (sx + j * 30, sy + play_height))
@@ -237,7 +237,6 @@ def main():
         grid = create_grid(locked_positions)
         fall_time += clock.get_rawtime()
         clock.tick()
-    
 
         if fall_time/1000 >= fall_speed:
             fall_time = 0
@@ -265,12 +264,12 @@ def main():
                         current_piece.x -= 1
                 elif event.key == pygame.K_UP:
           
-                    current_piece.rotation = current_piece.rotation + 1 % len(current_piece.shape)
+                    current_piece.rotation = current_piece.rotation
+                    + 1 % len(current_piece.shape)
                     if not valid_space(current_piece, grid):
-                        current_piece.rotation = current_piece.rotation - 1 % len(current_piece.shape)
-
+                        current_piece.rotation = current_piece.rotation
+                        - 1 % len(current_piece.shape)
                 if event.key == pygame.K_DOWN:
-                   
                     current_piece.y += 1
                     if not valid_space(current_piece, grid):
                         current_piece.y -= 1
