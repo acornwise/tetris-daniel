@@ -128,7 +128,6 @@ def get_shape():
 
 def draw_window(surface, grid):
     surface.fill((0, 0, 0))
-    
     font = pygame.font.SysFont('comicsans', 60)
     label = font.render('TETRIS', 1, (255, 255, 255))
     surface.blit(label, (top_left_x + play_width / 2 - (label.get_width() / 2), 30))
