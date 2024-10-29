@@ -202,12 +202,12 @@ def valid_space(shape, grid):
     accepted_positions = [[(j, i) for j in range(10) if grid[i][j] == (0,0,0)] for i in range(20)]
     accepted_positions = [j for sub in accepted_positions for j in sub]
     formatted = convert_shape_format(shape)
- 
+
     for pos in formatted:
         if pos not in accepted_positions:
             if pos[1] > -1:
                 return False
- 
+
     return True
 
 
@@ -234,13 +234,12 @@ def main():
     while run:
 
         fall_speed = 0.27
-        
         grid = create_grid(locked_positions)
         fall_time += clock.get_rawtime()
         clock.tick()
     
- 
-        if fall_time/1000 >= fall_speed:
+
+        if fall_time/1000 >= fall_speed
             fall_time = 0
             current_piece.y += 1
             if not (valid_space(current_piece, grid)) and current_piece.y > 0:
@@ -255,7 +254,7 @@ def main():
                 quit()
 
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:
+                if event.key == pygame.K_LEFT:  
                     current_piece.x -= 1
                     if not valid_space(current_piece, grid):
                         current_piece.x += 1
