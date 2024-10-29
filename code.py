@@ -292,8 +292,6 @@ def main():
             next_piece = get_shape()
             change_piece = False
 
-
-
     draw_window(win, grid)
 
 
