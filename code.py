@@ -135,19 +135,17 @@ def draw_window(surface, grid):
 
     for i in range(len(grid)):
         for j in range(len(grid[i])):
-            pygame.draw.rect(surface, grid[i][j], (top_left_x + j * block_size, 
+            pygame.draw.rect(surface, grid[i][j], (top_left_x + j * block_size,
             top_left_y + i * block_size, block_size, block_size), 0)
 
-  
+
     pygame.draw.rect(surface, (255, 0, 0), (top_left_x, top_left_y, play_width, play_height), 5)
     pygame.display.update()
 
 def main():
     global grid
-        
     locked_positions = {} 
     grid = create_grid(locked_positions)
-    
     run = True
     current_piece = get_shape()
     next_piece = get_shape()
@@ -187,7 +185,8 @@ def draw_grid(surface, row, col):
     for i in range(row):
         pygame.draw.line(surface, (128,128,128), (sx, sy+ i*30), (sx + play_width, sy + i * 30))  
         for j in range(col):
-            pygame.draw.line(surface, (128,128,128), (sx + j * 30, sy), (sx + j * 30, sy + play_height))  
+            pygame.draw.line(surface, (128,128,128), (sx + j * 30, sy),
+             (sx + j * 30, sy + play_height))
 
 
     sx = top_left_x
@@ -195,7 +194,8 @@ def draw_grid(surface, row, col):
     for i in range(row):
         pygame.draw.line(surface, (128,128,128), (sx, sy+ i*30), (sx + play_width, sy + i * 30))  
         for j in range(col):
-            pygame.draw.line(surface, (128,128,128), (sx + j * 30, sy), (sx + j * 30, sy + play_height))  
+            pygame.draw.line(surface, (128,128,128), (sx + j * 30, sy),
+             (sx + j * 30, sy + play_height))
 
 
 def valid_space(shape, grid):
@@ -222,7 +222,7 @@ def check_lost(positions):
 def main():
     global grid
 
-    locked_positions = {} 
+    locked_positions = {}
     grid = create_grid(locked_positions)
     change_piece = False
     run = True
@@ -282,7 +282,7 @@ def main():
        
         for i in range(len(shape_pos)):
             x, y = shape_pos[i]
-            if y > -1: 
+            if y > -1:
                 grid[y][x] = current_piece.color
       
     if change_piece:
