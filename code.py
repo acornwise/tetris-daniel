@@ -132,10 +132,11 @@ def draw_window(surface, grid):
     label = font.render('TETRIS', 1, (255, 255, 255))
     surface.blit(label, (top_left_x + play_width / 2 - (label.get_width() / 2), 30))
 
-  
+
     for i in range(len(grid)):
         for j in range(len(grid[i])):
-            pygame.draw.rect(surface, grid[i][j], (top_left_x + j * block_size, top_left_y + i * block_size, block_size, block_size), 0)
+            pygame.draw.rect(surface, grid[i][j], (top_left_x + j * block_size, 
+            top_left_y + i * block_size, block_size, block_size), 0)
 
   
     pygame.draw.rect(surface, (255, 0, 0), (top_left_x, top_left_y, play_width, play_height), 5)
@@ -143,7 +144,7 @@ def draw_window(surface, grid):
 
 def main():
     global grid
-
+        
     locked_positions = {} 
     grid = create_grid(locked_positions)
     
@@ -318,4 +319,4 @@ def draw_next_shape(shape, surface):
             if column == '0':
                 pygame.draw.rect(surface, shape.color, (sx + j*30, sy + i*30, 30, 30), 0)
 
-    surface.blit(label, (sx + 10, sy- 30))
+    surface.blit(label, (sx + 10, sy- 30))  
