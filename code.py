@@ -268,20 +268,17 @@ def main():
                     if not valid_space(current_piece, grid):
                         current_piece.rotation = current_piece.rotation
                         - 1 % len(current_piece.shape)
-                if event.key == pygame.K_DOWN:      
+                if event.key == pygame.K_DOWN:
                     current_piece.y += 1
                     if not valid_space(current_piece, grid):
                         current_piece.y -= 1
 
-     
         shape_pos = convert_shape_format(current_piece)
 
-       
         for i in range(len(shape_pos)):
             x, y = shape_pos[i]
             if y > -1:
                 grid[y][x] = current_piece.color
-      
     if change_piece:
             for pos in shape_pos:
                 p = (pos[0], pos[1])
@@ -289,13 +286,9 @@ def main():
             current_piece = next_piece
             next_piece = get_shape()
             change_piece = False
-
     draw_window(win, grid)
-
-
     if check_lost(locked_positions):
             run = False
-
 def draw_next_shape(shape, surface):
     font = pygame.font.SysFont('comicsans', 30)
     label = font.render('Next Shape', 1, (255,255,255))
@@ -308,5 +301,6 @@ def draw_next_shape(shape, surface):
         row = list(line)
         for j, column in enumerate(row):
             if column == '0':
-                pygame.draw.rect(surface, shape.color, (sx + j*30, sy + i*30, 30, 30), 0)
-    surface.blit(label, (sx + 10, sy- 30))  
+                pygame.draw.rect(surface, shape.color,
+                                  (sx + j*30, sy + i*30, 30, 30), 0)
+    surface.blit(label, (sx + 10, sy- 30))
