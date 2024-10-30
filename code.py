@@ -295,10 +295,6 @@ def main():
 
     if check_lost(locked_positions):
             run = False
-        
-
-
-
 
 def draw_next_shape(shape, surface):
     font = pygame.font.SysFont('comicsans', 30)
@@ -313,5 +309,4 @@ def draw_next_shape(shape, surface):
         for j, column in enumerate(row):
             if column == '0':
                 pygame.draw.rect(surface, shape.color, (sx + j*30, sy + i*30, 30, 30), 0)
-
     surface.blit(label, (sx + 10, sy- 30))  
