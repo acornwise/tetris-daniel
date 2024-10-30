@@ -253,7 +253,7 @@ def main():
                 quit()
 
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:  
+                if event.key == pygame.K_LEFT:
                     current_piece.x -= 1
                     if not valid_space(current_piece, grid):
                         current_piece.x += 1
@@ -263,13 +263,12 @@ def main():
                     if not valid_space(current_piece, grid):
                         current_piece.x -= 1
                 elif event.key == pygame.K_UP:
-          
                     current_piece.rotation = current_piece.rotation
                     + 1 % len(current_piece.shape)
                     if not valid_space(current_piece, grid):
                         current_piece.rotation = current_piece.rotation
                         - 1 % len(current_piece.shape)
-                if event.key == pygame.K_DOWN:  
+                if event.key == pygame.K_DOWN:      
                     current_piece.y += 1
                     if not valid_space(current_piece, grid):
                         current_piece.y -= 1
